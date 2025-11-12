@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R.E.P.O</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/logo de pestaña.jpg">
+</head>
+
+<body>
+<h1> hola</h1>
+    <header class=" text-center py-3">
+        <h1 class="fw-bold"> Objetos de R.E.P.O </h1>
+        <hr>
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item dropdown  mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><!--Buton que permite ordenar de caro a barato y viceversa-->
+                        Valor
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Caro-Barato</a></li>
+                        <li><a class="dropdown-item" href="#">Barato-Caro</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"> <!--Boton que ordena el tamaño de los objeto-->
+                        Tamaño
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Grande-Chico</a></li>
+                        <li><a class="dropdown-item" href="#">Chico-Grande</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"> <!--Boton que ordena el tamaño de los objeto-->
+                        Información
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="Acerca.html">Acerca de nosotros</a></li>
+                        <li><a class="dropdown-item" href="Contacto.html">Contacto</a></li>
+                        <li><a class="dropdown-item" href="Avisos.html">Avisos Legales</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                    </ul>
+                </li>
+                
+               
+               
+
+            </ul>
+             <!--Barra de Busqueda-->
+            <form class="d-flex justify-content-center w-100" role="search">
+                <input class="form-control w-50 me-2" type="search" placeholder="Buscar objeto..."
+                    aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+
+        </div>
+    </nav>
+
+    <div class="container" id="cardsContainer"></div>   
+
+    
+
+    <script>
+        async function cargarDatos() {
+            try {
+                const res = await fetch('/api/datos');
+                const datos = await res.json();
+
+                const contenedor = document.getElementById('cardsContainer');
+                datos.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    console.log(item)
+                    // Reemplaza estos campos según tus columnas en MySQL
+                    card.innerHTML = `
+            <h3> ${item.nombre}</h3>
+            <p><strong>Valor:</strong> ${item.valor}</p>
+            <p><strong>Ubicacion:</strong> ${item.ubicacion}</p>
+          `;
+
+                    contenedor.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error al cargar los datos:', error);
+            }
+        }
+
+        cargarDatos();
+    </script> 
+      <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script> 
+  
+
+</body>
+
+</html>
