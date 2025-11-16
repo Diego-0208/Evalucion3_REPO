@@ -6,90 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R.E.P.O</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/img/logo de pestaña.jpg">
 </head>
 
 <body>
 
-    <header class=" text-center py-3">
-        <h1 class="fw-bold"> Objetos de R.E.P.O </h1>
+    <header class="text-center py-3">
+        <h1 class="fw-bold">Objetos de R.E.P.O</h1>
         <hr>
     </header>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item dropdown  mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><!--Buton que permite ordenar de caro a barato y viceversa-->
-                        Valor
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Caro-Barato</a></li>
-                        <li><a class="dropdown-item" href="#">Barato-Caro</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
 
-                    </ul>
-                </li>
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+
+                <!-- ORDEN POR VALOR -->
                 <li class="nav-item dropdown mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"> <!--Boton que ordena el tamaño de los objeto-->
-                        Tamaño
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Valor</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Grande-Chico</a></li>
-                        <li><a class="dropdown-item" href="#">Chico-Grande</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
+                        <li><a class="dropdown-item" href="#" onclick="setValor('desc')">Caro → Barato</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="setValor('asc')">Barato → Caro</a></li>
                     </ul>
                 </li>
 
-
+                <!-- FILTRO POR TAMAÑO (no funciona aún, pero queda listo para futuro si quieres agregarlo) -->
                 <li class="nav-item dropdown mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"> <!--Boton que ordena el tamaño de los objeto-->
-                        Información
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tamaño</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Grande → Chico</a></li>
+                        <li><a class="dropdown-item" href="#">Chico → Grande</a></li>
+                    </ul>
+                </li>
+
+                <!-- INFORMACIÓN -->
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Información</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="Acerca.html">Acerca de nosotros</a></li>
                         <li><a class="dropdown-item" href="Contacto.html">Contacto</a></li>
                         <li><a class="dropdown-item" href="Avisos.html">Avisos Legales</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
                     </ul>
                 </li>
-                
-               
-               
 
             </ul>
-             <!--Barra de Busqueda-->
-            <form class="d-flex justify-content-center w-100" role="search">
-                <input class="form-control w-50 me-2" type="search" placeholder="Buscar objeto..."
-                    aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+
+            <!-- BUSCADOR -->
+            <form class="d-flex justify-content-center w-100">
+                <input id="busquedaNombre" class="form-control w-50 me-2" type="search"
+                    placeholder="Buscar objeto..." aria-label="Search">
+                <button class="btn btn-outline-success" type="button" onclick="aplicarFiltros()">Buscar</button>
             </form>
 
         </div>
     </nav>
 
-    <div class="container" id="cardsContainer"></div>        
+    <!-- FILTRO EXTRA: UBICACIÓN -->
+    <div class="container mt-4">
+        <label class="text-light">Filtrar por ubicación:</label>
+        <select id="filtroUbicacion" class="form-control w-50">
+            <option value="">Todas</option>
+            <option value="Academia Swiftbroom">Academia Swiftbroom</option>
+            <option value="Mansion del jefe">Mansion del jefe</option>
+            <option value="Estación McJannek">Estación McJannek</option>
+            <option value="Museo del Arte Humano">Museo del Arte Humano</option>
+        </select>
+    </div>
 
-    
-    </script> 
-      <script src="assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script> 
-  
+    <br>
+
+    <!-- TARJETAS -->
+    <div class="container" id="cardsContainer"></div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- Script para ordenar desde el menú -->
+    <script>
+        function setValor(tipo) {
+            document.getElementById("ordenValor").value = tipo;
+            aplicarFiltros();
+        }
+    </script>
+
+    <!-- Campo oculto para controlar el orden -->
+    <select id="ordenValor" style="display:none;">
+        <option value=""></option>
+        <option value="asc"></option>
+        <option value="desc"></option>
+    </select>
 
 </body>
 
