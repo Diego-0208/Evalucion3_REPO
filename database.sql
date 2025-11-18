@@ -159,3 +159,6 @@ VALUES
 (1,1,2),
 (1,22,3),
 (1,33,4);
+
+-- mysql -u root -p < database.sql
+-- ejecutarlo en la consola power shell para clonar la base de datos 
