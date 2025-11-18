@@ -43,5 +43,5 @@ async function aplicarFiltros() {
     }
 }
 
-// 🔥 LLAMAR FUNCIÓN AL INICIAR LA PÁGINA
+//  LLAMAR FUNCIÓN AL INICIAR LA PÁGINA
 aplicarFiltros();
