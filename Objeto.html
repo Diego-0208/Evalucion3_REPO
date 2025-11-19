@@ -23,8 +23,8 @@
 
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
 
-                <!-- ORDEN POR VALOR -->
-                <li class="nav-item dropdown mx-2">
+                
+                <li class="nav-item dropdown mx-2">   <!-- logica para organizar lista de objetos segun su valor según la opción del dropdown item-->
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Valor</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#" onclick="setValor('desc')">Caro → Barato</a></li>
@@ -32,10 +32,10 @@
                     </ul>
                 </li>
 
-                <!-- FILTRO POR TAMAÑO (no funciona aún, pero queda listo para futuro si quieres agregarlo) -->
+                
                 
 
-                <!-- INFORMACIÓN -->
+                <!-- Información de pagina, cambia entre html's  -->
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Información</a>
                     <ul class="dropdown-menu">
@@ -47,9 +47,10 @@
 
             </ul>
 
-            <!-- BUSCADOR -->
+            <!-- BUSCADOR: se crea id para el buscador y luego se aplica un onclick para que al presionar ese boton se ejecute la función -->
             <form class="d-flex justify-content-center w-100">
-                <input id="busquedaNombre" class="form-control w-50 me-2" type="search"
+                <input id="busquedaNombre" class="form-control w-50 me-2" type="search" 
+                    
                     placeholder="Buscar objeto..." aria-label="Search">
                 <button class="btn btn-outline-success" type="button" onclick="aplicarFiltros()">Buscar</button>
             </form>
@@ -57,7 +58,7 @@
         </div>
     </nav>
 
-    <!-- FILTRO EXTRA: UBICACIÓN -->
+    <!-- FILTRO EXTRA: UBICACIÓN= Menú desplegable para filtrar objetos por ubicación del juego -->
     <div class="container mt-4">
         <label class="text-light">Filtrar por ubicación:</label>
         <select id="filtroUbicacion" class="form-control w-50">
@@ -71,7 +72,7 @@
 
     <br>
 
-    <!-- TARJETAS -->
+    <!-- TARJETAS: Aquí es donde mostramos los objetos cuando se busquen, está vacío porque se llena con el JS -->
     <div class="container" id="cardsContainer"></div>
 
     <script src="assets/js/script.js"></script>
