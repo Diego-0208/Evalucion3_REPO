@@ -45,6 +45,7 @@ async function aplicarFiltros() {
         contenedor.innerHTML = "";
         // borramos cualquier contenido anterior
 
+         // Crea una tarjeta HTML con la info del objeto:
         filtrados.forEach(obj => {
             contenedor.innerHTML += `
                 <div class="card bg-dark text-light m-3 p-3 border border-warning">
@@ -52,7 +53,7 @@ async function aplicarFiltros() {
                     <p><b>Valor:</b> ${obj.Valor}</p>
                     <p><b>Ubicación:</b> ${obj.Ubicacion}</p>
                 </div>
-                  // Crea una tarjeta HTML con la info del objeto:
+                 
             `;
         });
 
