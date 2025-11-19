@@ -43,7 +43,7 @@ async function aplicarFiltros() {
         // Encontramos el contenedor donde vamos a poner las tarjetas
         
         contenedor.innerHTML = "";
-        / borramos cualquier contenido anterior
+        // borramos cualquier contenido anterior
 
         filtrados.forEach(obj => {
             contenedor.innerHTML += `
