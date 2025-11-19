@@ -78,7 +78,8 @@
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <!-- Script para ordenar desde el menú -->
+    <!-- Script para ordenar desde el menu -->
+     <!-- Cambia el valor del campo oculto ordenValor y llama a aplicarFiltros() para actualizar la busqueda -->
     <script>
         function setValor(tipo) {
             document.getElementById("ordenValor").value = tipo;
@@ -86,13 +87,17 @@
         }
     </script>
 
-    <!-- Campo oculto para controlar el orden -->
+    <!-- Campo oculto para controlar el orden, no se ve en la página, pero nos guarda cómo queremos ordenr los resultados -->
     <select id="ordenValor" style="display:none;">
         <option value=""></option>
         <option value="asc"></option>
         <option value="desc"></option>
     </select>
 
+    <!-- El flujo va de manera que: al clickear buscar se ejecuta aplicarFiltros(), esta a su vez el texto del buscador (busquedaNombre) -->
+    <!-- La ubicación seleccionada (filtroUbicacion) -->
+    <!-- Y el orden elegido (ordenValor) -->
+    <!-- para luego buscar en la base de datos y mostrar los resultados en cardsContainer -->
 </body>
 
 </html>
